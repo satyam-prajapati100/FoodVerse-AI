@@ -1,6 +1,9 @@
 ﻿
 import os
 import tempfile
+from contextlib import asynccontextmanager
+from database import Base, engine
+import models  # Registers SQLAlchemy models with Base.metadata
 
 
 from fastapi import FastAPI, File, HTTPException, UploadFile
@@ -12,12 +15,20 @@ from routers.database import router as database_router
 from routers.freshness import router as freshness_router
 from routers.hygiene_monitor import router as hygiene_router
 from routers.kitchen_assistant import router as kitchen_router
+from routers.meal_planner import router as meal_planner_router
 from services.image_preprocessing import preprocess_food_image
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Create missing tables; existing tables and their data are preserved.
+    Base.metadata.create_all(bind=engine)
+    yield
 
 app = FastAPI(
     title="FoodVerse AI API",
     description="Backend API for the FoodVerse AI food intelligence platform",
     version="0.1.0",
+    lifespan=lifespan,
 )
 
 # Register existing API routers
@@ -28,7 +39,7 @@ app.include_router(database_router)
 app.include_router(freshness_router)
 app.include_router(hygiene_router)
 app.include_router(kitchen_router)
-
+app.include_router(meal_planner_router)
 @app.get("/")
 def home():
     return {
