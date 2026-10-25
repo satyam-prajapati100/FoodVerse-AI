@@ -1,0 +1,18 @@
+# Environment variables and API secrets
+.env
+.env.*
+
+# Allow an example configuration file to be committed
+!.env.example
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+.venv/
+
+# Model and generated files
+*.pt
+*.pth
+*.bin
