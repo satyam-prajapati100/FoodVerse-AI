@@ -11,6 +11,7 @@ from routers.nutrition_scoring import router as nutrition_scoring_router
 from routers.database import router as database_router
 from routers.freshness import router as freshness_router
 from routers.hygiene_monitor import router as hygiene_router
+from routers.kitchen_assistant import router as kitchen_router
 from services.image_preprocessing import preprocess_food_image
 
 app = FastAPI(
@@ -26,6 +27,7 @@ app.include_router(nutrition_scoring_router)
 app.include_router(database_router)
 app.include_router(freshness_router)
 app.include_router(hygiene_router)
+app.include_router(kitchen_router)
 
 @app.get("/")
 def home():

@@ -81,6 +81,7 @@ def _call_groq_vision(
     encoded_image: str,
     system_prompt: str,
     user_prompt: str,
+    max_completion_tokens: int = 700,
 ) -> str:
     """Send an image to Groq's hosted vision model."""
 
@@ -116,7 +117,7 @@ def _call_groq_vision(
                 ],
             },
         ],
-        max_completion_tokens=700,
+        max_completion_tokens=max_completion_tokens,
         temperature=0,
     )
 
