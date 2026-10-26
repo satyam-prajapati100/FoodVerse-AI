@@ -11,6 +11,7 @@ venv/
 !.env.example
 
 # Editors and operating systems
+*.sw?
 .vscode/
 .idea/
 .DS_Store

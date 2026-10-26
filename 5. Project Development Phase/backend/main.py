@@ -7,6 +7,7 @@ import models  # Registers SQLAlchemy models with Base.metadata
 
 
 from fastapi import FastAPI, File, HTTPException, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
 
 from routers.food_recognition import router as food_router
 from routers.nutrition import router as nutrition_router
@@ -29,6 +30,19 @@ app = FastAPI(
     description="Backend API for the FoodVerse AI food intelligence platform",
     version="0.1.0",
     lifespan=lifespan,
+)
+
+# Add CORS middleware
+# Allow React frontend to communicate with FastAPI backend
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Register existing API routers
