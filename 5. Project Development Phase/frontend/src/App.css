@@ -1,3 +1,5 @@
+
+
 .counter {
   font-size: 16px;
   padding: 5px 10px;
@@ -182,3 +184,58 @@
     border-right-color: var(--border);
   }
 }
+
+
+
+/* Uploaded food image preview */
+.uploaded-image-preview {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.uploaded-image-preview p {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.uploaded-food-image {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  max-height: 280px;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-top: 8px;
+  border: 1px solid #d1d5db;
+  background-color: #f9fafb;
+}
+
+
+
+
+/* Upload area when an image is selected */
+.drop-zone.has-preview {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.drop-zone-preview {
+  display: block;
+  width: 100%;
+  max-width: 380px;
+  height: 240px;
+  max-height: 240px;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+
+
+

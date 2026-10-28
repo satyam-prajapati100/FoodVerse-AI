@@ -22,10 +22,9 @@ router = APIRouter(
 
 class UserProfile(BaseModel):
     """Validated user information for personalized meal planning."""
-
     age: int = Field(ge=18, le=100)
-    height_cm: float = Field(gt=0, le=250)
-    weight_kg: float = Field(gt=0, le=500)
+    height_cm: float = Field(ge=100, le=250)
+    weight_kg: float = Field(ge=25, le=300)
 
     activity_level: Literal[
         "sedentary", "light", "moderate", "active", "very_active"

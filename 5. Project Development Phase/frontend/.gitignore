@@ -22,3 +22,19 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+# Local food test image
+5. Project Development Phase/backend/food_test.jpg
+
+# Generated OpenAPI snapshots
+foodverse-openapi.json
+5. Project Development Phase/backend/foodverse-openapi.json
+5. Project Development Phase/backend/openapi-check.json
+
+# Backup copies of routers
+5. Project Development Phase/backend/routers/*_backup.py
+
+# Default Vite assets
+5. Project Development Phase/frontend/src/assets/react.svg
+5. Project Development Phase/frontend/src/assets/vite.svg
